@@ -25,7 +25,7 @@ axios
 }
 
 export const postSmurf = (theSmurf) => (dispatch) => {
-    console.log('postsubmit!!!!')
+    console.log('postsubmit')
     dispatch({type: POST_DATA})
     axios.post('http://localhost:3333/smurfs', theSmurf)
         .then(res => {
@@ -34,5 +34,6 @@ export const postSmurf = (theSmurf) => (dispatch) => {
         })
         .catch(err => {
             console.log('posterror', err)
+            dispatch({type:POST_FAIL, payload:err.error})
         })
 } 
